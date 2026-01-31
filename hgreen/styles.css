@@ -817,40 +817,38 @@ ul {
 }
 
 /* ========================================
-   Problem Section - Dramatic Dark Style
+   Problem Section - Light with Red Accents
    ======================================== */
 .problem {
-    background: linear-gradient(180deg, #1c1917 0%, #292524 50%, #1c1917 100%);
+    background: linear-gradient(160deg, #fef2f2 0%, #fee2e2 30%, #fecaca 70%, #fca5a5 100%);
     position: relative;
     overflow: hidden;
 }
 
-/* Dramatic Background Elements */
+/* Soft Organic Shapes - Red themed */
 .problem::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        radial-gradient(ellipse at 20% 20%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(220, 38, 38, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+    top: -15%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(248, 113, 113, 0.3) 0%, transparent 70%);
     pointer-events: none;
+    animation: organicFloat 25s ease-in-out infinite;
 }
 
-/* Subtle texture overlay */
 .problem::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
+    bottom: -10%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(252, 165, 165, 0.4) 0%, transparent 70%);
     pointer-events: none;
+    animation: organicFloat 25s ease-in-out infinite;
+    animation-delay: -8s;
 }
 
 .problem .container {
@@ -858,17 +856,18 @@ ul {
     z-index: 1;
 }
 
-/* Override section header for dark background */
+/* Section header styling for red theme */
 .problem .section-tagline {
-    color: #f87171;
+    color: #dc2626;
 }
 
 .problem .section-title {
-    color: #fafafa;
+    color: var(--color-dark);
 }
 
 .problem .section-description {
-    color: rgba(255, 255, 255, 0.6);
+    color: #7f1d1d;
+    opacity: 0.7;
 }
 
 .problem-grid {
@@ -892,77 +891,78 @@ ul {
 
 .problem-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: var(--space-8);
     border-radius: var(--radius-2xl);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.6s var(--ease-soft);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.5s var(--ease-soft);
     overflow: hidden;
     counter-increment: problem-counter;
 }
 
-/* Top accent line */
+/* Left accent line */
 .problem-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #ef4444 50%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.6s var(--ease-soft);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #ef4444 0%, #f87171 100%);
+    transition: height 0.5s var(--ease-soft);
+    border-radius: 4px 0 0 4px;
 }
 
 .problem-card:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.85);
     border-color: rgba(239, 68, 68, 0.2);
-    transform: translateY(-4px);
+    transform: translateY(-6px);
 }
 
 .problem-card:hover::before {
-    opacity: 1;
+    height: 100%;
 }
 
 .problem-icon {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.05) 100%);
-    border: 1px solid rgba(239, 68, 68, 0.15);
+    background: rgba(254, 226, 226, 0.8);
+    border: 1px solid rgba(248, 113, 113, 0.3);
     border-radius: var(--radius-xl);
-    color: #f87171;
+    color: #dc2626;
     margin-bottom: var(--space-5);
     transition: all 0.5s var(--ease-soft);
 }
 
 .problem-icon svg {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
 }
 
 .problem-card:hover .problem-icon {
-    background: linear-gradient(135deg, rgba(239, 68, 68, 0.3) 0%, rgba(239, 68, 68, 0.1) 100%);
-    border-color: rgba(239, 68, 68, 0.3);
+    background: rgba(254, 226, 226, 1);
+    border-color: rgba(239, 68, 68, 0.5);
     transform: scale(1.05);
 }
 
 .problem-title {
     font-family: var(--font-display);
-    font-size: var(--fs-xl);
+    font-size: var(--fs-lg);
     font-weight: 600;
-    color: #fafafa;
+    color: var(--color-dark);
     margin-bottom: var(--space-3);
     letter-spacing: -0.01em;
 }
 
 .problem-description {
     font-size: var(--fs-sm);
-    color: rgba(255, 255, 255, 0.5);
+    color: #991b1b;
+    opacity: 0.7;
     line-height: var(--lh-relaxed);
 }
 
@@ -973,29 +973,15 @@ ul {
     bottom: var(--space-5);
     right: var(--space-5);
     font-family: var(--font-display);
-    font-size: var(--fs-4xl);
+    font-size: var(--fs-3xl);
     font-weight: 700;
-    color: rgba(239, 68, 68, 0.08);
+    color: rgba(239, 68, 68, 0.1);
     line-height: 1;
     transition: color 0.5s var(--ease-soft);
 }
 
 .problem-card:hover::after {
-    color: rgba(239, 68, 68, 0.15);
-}
-
-/* Warning pulse on first card */
-.problem-card:first-child .problem-icon {
-    animation: warningPulse 3s ease-in-out infinite;
-}
-
-@keyframes warningPulse {
-    0%, 100% {
-        border-color: rgba(239, 68, 68, 0.15);
-    }
-    50% {
-        border-color: rgba(239, 68, 68, 0.4);
-    }
+    color: rgba(239, 68, 68, 0.2);
 }
 
 /* ========================================
