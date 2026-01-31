@@ -46,75 +46,114 @@
         <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-bg">
-                <!-- Video Background -->
-                <div class="hero-video-overlay"></div>
-                <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=2000&q=80">
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-white-smoke-floating-on-a-black-background-26783-large.mp4" type="video/mp4">
-                </video>
+                <!-- Animated Background Elements -->
+                <div class="hero-orbs">
+                    <div class="hero-orb hero-orb-1"></div>
+                    <div class="hero-orb hero-orb-2"></div>
+                    <div class="hero-orb hero-orb-3"></div>
+                </div>
+                <!-- Gradient Mesh -->
+                <div class="hero-mesh"></div>
                 <div class="hero-overlay"></div>
             </div>
 
-            <!-- Floating Elements -->
+            <!-- Floating Stats -->
             <div class="hero-floating-elements">
-                <div class="floating-badge floating-badge-1">
-                    <div class="badge-icon">
+                <div class="floating-stat floating-stat-1">
+                    <div class="stat-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                             <polyline points="22 4 12 14.01 9 11.01"/>
                         </svg>
                     </div>
-                    <div class="badge-content">
-                        <span class="badge-number">500+</span>
-                        <span class="badge-text">Companies Trust Us</span>
+                    <div class="stat-info">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">Properties Served</span>
                     </div>
                 </div>
-                <div class="floating-badge floating-badge-2">
-                    <div class="badge-icon">
+                <div class="floating-stat floating-stat-2">
+                    <div class="stat-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
                         </svg>
                     </div>
-                    <div class="badge-content">
-                        <span class="badge-number">15 Years</span>
-                        <span class="badge-text">Mold Protection</span>
+                    <div class="stat-info">
+                        <span class="stat-value">15 Yrs</span>
+                        <span class="stat-label">Mold Protection</span>
+                    </div>
+                </div>
+                <div class="floating-stat floating-stat-3">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">20%</span>
+                        <span class="stat-label">Energy Savings</span>
                     </div>
                 </div>
             </div>
 
+            <!-- Leaf Decorations -->
+            <div class="hero-leaves">
+                <svg class="leaf leaf-1" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+                </svg>
+                <svg class="leaf leaf-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+                </svg>
+            </div>
+
             <div class="hero-content container">
                 <div class="hero-badge fade-up">
-                    <span class="hero-badge-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                            <path d="M7.5 12l3 3 6-6"/>
-                        </svg>
-                    </span>
-                    Eco-Friendly Mold Solutions
+                    <span class="badge-dot"></span>
+                    <span>Eco-Friendly Solutions</span>
+                    <span class="badge-dot"></span>
                 </div>
                 <h1 class="hero-title fade-up">
-                    Luxury Hotels Deserve <span class="text-gradient">Clean Air</span> Not Hidden Mold
+                    Luxury Hotels Deserve<br>
+                    <span class="text-gradient">Clean Air</span>
+                    <span class="title-light">Not Hidden Mold</span>
                 </h1>
                 <p class="hero-description fade-up">
-                    We eliminate mold, cut chemical use, and slash your energy bills with smart, fast, green technology.
+                    We eliminate mold, cut chemical use, and slash your energy bills<br class="hide-mobile"> with smart, fast, green technology.
                 </p>
                 <div class="hero-actions fade-up">
-                    <a href="#contact" class="btn btn-primary">
+                    <a href="#contact" class="btn btn-primary btn-glow">
                         <span>Free Building Checkup</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
-                    <a href="#process" class="btn btn-secondary">
-                        <span>See How It Works</span>
+                    <a href="#process" class="btn btn-glass">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                        </svg>
+                        <span>Watch How It Works</span>
                     </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="hero-trust fade-up">
+                    <span class="trust-label">Trusted by leading hotel brands</span>
+                    <div class="trust-logos">
+                        <span class="trust-logo">Marriott</span>
+                        <span class="trust-divider">•</span>
+                        <span class="trust-logo">Hyatt</span>
+                        <span class="trust-divider">•</span>
+                        <span class="trust-logo">Accor</span>
+                        <span class="trust-divider">•</span>
+                        <span class="trust-logo">Four Seasons</span>
+                    </div>
                 </div>
             </div>
 
             <div class="hero-scroll">
-                <span>Scroll to explore</span>
-                <div class="scroll-indicator">
-                    <div class="scroll-dot"></div>
-                </div>
+                <div class="scroll-line"></div>
+                <span>Scroll</span>
             </div>
         </section>
 
