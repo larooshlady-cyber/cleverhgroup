@@ -1560,7 +1560,7 @@ ul {
 .partners-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-8) var(--space-12);
+    gap: var(--space-10) var(--space-12);
     align-items: center;
     justify-items: center;
 }
@@ -1573,23 +1573,24 @@ ul {
 
 @media (min-width: 1024px) {
     .partners-grid {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 .partner-logo {
-    opacity: 0.5;
-    transition: opacity var(--transition-base);
+    opacity: 0.6;
+    transition: opacity var(--transition-base), transform 0.4s ease;
     filter: grayscale(100%);
 }
 
 .partner-logo:hover {
     opacity: 1;
     filter: grayscale(0%);
+    transform: scale(1.05);
 }
 
 .partner-logo img {
-    max-height: 40px;
+    max-height: 70px;
     width: auto;
 }
 
