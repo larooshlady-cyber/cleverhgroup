@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clever H Group - Premium hospitality solutions for hotels, resorts, and luxury properties. Elevate your guest experience with our operational products and services.">
+    <title>Clever H Group | Where Great Hospitality Begins</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <span class="logo-clever">Clever</span><span class="logo-h">H</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#serve">Who We Serve</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-primary nav-cta">Book Consultation</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#partners">Partners</a></li>
+            <li><a href="#serve">Who We Serve</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Book Consultation</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <!-- Video Background -->
+                <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80">
+                    <source src="hero.mp4" type="video/mp4">
+                    <!-- Fallback image if video doesn't load -->
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=80" alt="Luxury hotel interior" class="hero-image">
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+
+            <!-- Floating Elements -->
+            <div class="hero-floating-elements">
+                <div class="floating-badge floating-badge-1">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-content">
+                        <span class="badge-number">500+</span>
+                        <span class="badge-label">Properties Served</span>
+                    </div>
+                </div>
+                <div class="floating-badge floating-badge-2">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-content">
+                        <span class="badge-number">25+</span>
+                        <span class="badge-label">Countries</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge fade-in">
+                        <span class="hero-badge-dot"></span>
+                        <span>Trusted by Industry Leaders</span>
+                    </div>
+                    <h1 class="hero-title fade-in">
+                        <span class="hero-title-line">Where Great</span>
+                        <span class="hero-title-line"><span class="hero-title-accent">Hospitality</span> Begins</span>
+                    </h1>
+                    <p class="hero-description fade-in">We help hotels, resorts, and luxury properties deliver exceptional guest experiences through premium operational solutions and strategic partnerships.</p>
+                    <div class="hero-ctas fade-in">
+                        <a href="#contact" class="btn btn-primary btn-lg">
+                            <span>Book a Consultation</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#solutions" class="btn btn-outline btn-lg">
+                            <span>Explore Solutions</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-scroll">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+
+            <!-- Decorative gradient orbs -->
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-us section" id="why-us">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <p class="section-tagline">Values That Matter</p>
+                    <h2 class="section-title">Why Choose Us</h2>
+                    <p class="section-description">For over 10 years, we have helped hospitality businesses achieve operational excellence while delivering the premium experiences their guests deserve.</p>
+                </div>
+                <div class="values-grid stagger-container">
+                    <div class="value-card stagger-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Tailored for You</h3>
+                        <p class="value-description">Solutions designed specifically for your property's unique requirements, guest profile, and operational goals.</p>
+                    </div>
+                    <div class="value-card stagger-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Luxury That Lasts</h3>
+                        <p class="value-description">Premium quality products and systems engineered for durability, reducing long-term costs while elevating guest perception.</p>
+                    </div>
+                    <div class="value-card stagger-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Global, Yet Close</h3>
+                        <p class="value-description">International sourcing capabilities with dedicated local support, ensuring responsive service wherever you operate.</p>
+                    </div>
+                    <div class="value-card stagger-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"/>
+                                <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0-2 2a2 2 0 0 0-2-2a2 2 0 0 0 2-2"/>
+                                <path d="M19 11h2m-1-1v2"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Cleaner, Greener Solutions</h3>
+                        <p class="value-description">Environmentally conscious products and practices that help you meet sustainability goals without compromising quality.</p>
+                    </div>
+                    <div class="value-card stagger-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">One Partner, Zero Stress</h3>
+                        <p class="value-description">From initial consultation to ongoing support, we handle everything so your team can focus on what matters most—your guests.</p>
+                    </div>
+                    <div class="value-card stagger-item">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Quality You Can Feel</h3>
+                        <p class="value-description">Every product we source meets rigorous quality standards, ensuring your guests experience the premium touch they expect.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Are -->
+        <section class="about section" id="about">
+            <div class="about-bg-pattern"></div>
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content slide-left">
+                        <p class="section-tagline">Our Story</p>
+                        <h2 class="section-title">Who We Are</h2>
+                        <p class="about-lead">Clever H Group is a full-service procurement, consulting, and operations partner to the global hospitality industry.</p>
+                        <p class="about-text">We specialize in high-value solutions tailored to premium hotels, resorts, and serviced residences. Our team brings deep experience in hotel operations combined with global sourcing expertise.</p>
+                        <p class="about-text">We understand that every detail matters—from the quality of linens to the efficiency of housekeeping systems. With decades of experience and offices across key markets, we deliver products and services that enhance your operations while strengthening your bottom line.</p>
+
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        <path d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </div>
+                                <span>Trusted Partner</span>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M2 12h20"/>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                    </svg>
+                                </div>
+                                <span>Global Network</span>
+                            </div>
+                            <div class="about-feature">
+                                <div class="about-feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                                    </svg>
+                                </div>
+                                <span>Premium Quality</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-media slide-right">
+                        <div class="about-image-wrapper">
+                            <div class="about-image-main">
+                                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="About Clever H Group">
+                            </div>
+                            <div class="about-image-accent"></div>
+                            <div class="about-stats-card">
+                                <div class="stat-card-item">
+                                    <span class="stat-card-number" data-target="10">0</span>
+                                    <span class="stat-card-label">Years</span>
+                                </div>
+                                <div class="stat-card-divider"></div>
+                                <div class="stat-card-item">
+                                    <span class="stat-card-number" data-target="500">0</span>
+                                    <span class="stat-card-label">Properties</span>
+                                </div>
+                                <div class="stat-card-divider"></div>
+                                <div class="stat-card-item">
+                                    <span class="stat-card-number" data-target="25">0</span>
+                                    <span class="stat-card-label">Countries</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-experience-badge">
+                            <span class="experience-number">10+</span>
+                            <span class="experience-text">Years of<br>Excellence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Solutions -->
+        <section class="solutions section" id="solutions">
+            <div class="container">
+                <div class="section-header section-header-left fade-up">
+                    <p class="section-tagline">Products</p>
+                    <h2 class="section-title">Our Solutions</h2>
+                    <p class="section-description">From luxury linens and custom flooring to eco-friendly cleaning systems and smart laundry management — Clever H Group brings together the essentials that elevate your space, simplify your operations, and impress your guests. No more juggling suppliers or chasing quality. Just one trusted partner, delivering it all with care, consistency, and global expertise.</p>
+                </div>
+                <div class="solutions-grid stagger-container">
+                    <!-- H Linen -->
+                    <div class="solution-card solution-card-large stagger-item">
+                        <div class="solution-image">
+                            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="H Linen - Premium Hotel Linens">
+                        </div>
+                        <div class="solution-overlay">
+                            <div class="solution-badge">
+                                <span class="badge-h">H</span>
+                                <span class="badge-name">Linen</span>
+                            </div>
+                            <p class="solution-text">Indulge your guests with the finest hotel linens, bedding, and towels. H Linen delivers luxury quality with durability and care, ensuring every stay feels like a five-star experience</p>
+                        </div>
+                    </div>
+
+                    <!-- H Tech -->
+                    <div class="solution-card solution-card-large stagger-item">
+                        <div class="solution-image">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="H Tech - RFID Technology">
+                        </div>
+                        <div class="solution-overlay">
+                            <div class="solution-badge">
+                                <span class="badge-h badge-h-blue">H</span>
+                                <span class="badge-name">Tech</span>
+                            </div>
+                            <p class="solution-text">Streamline your hotel operations with H Tech's RFID technology. From tracking linens to managing inventory, our smart systems reduce waste, save time, and boost efficiency</p>
+                        </div>
+                    </div>
+
+                    <!-- H Green -->
+                    <div class="solution-card solution-card-tall stagger-item">
+                        <div class="solution-image">
+                            <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=800&q=80" alt="H Green - Eco-Friendly Solutions">
+                        </div>
+                        <div class="solution-overlay">
+                            <div class="solution-badge">
+                                <span class="badge-h badge-h-green">H</span>
+                                <span class="badge-name">Green</span>
+                            </div>
+                            <p class="solution-text">Clever H Green Solutions offers patented, eco-friendly products for HVAC and mold treatment — ensuring cleaner air, lower energy use, and a healthier environment</p>
+                        </div>
+                    </div>
+
+                    <!-- H Flooring -->
+                    <div class="solution-card stagger-item">
+                        <div class="solution-image">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="H Flooring - Custom Flooring">
+                        </div>
+                        <div class="solution-overlay">
+                            <div class="solution-badge">
+                                <span class="badge-h badge-h-orange">H</span>
+                                <span class="badge-name">Flooring</span>
+                            </div>
+                            <p class="solution-text">Transform your spaces with expertly crafted flooring and bespoke carpentry. From grand hotel lobbies to intimate suites, H Flooring blends style and precision</p>
+                        </div>
+                    </div>
+
+                    <!-- H Studio -->
+                    <div class="solution-card stagger-item">
+                        <div class="solution-image">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="H Studio - Digital Marketing">
+                        </div>
+                        <div class="solution-overlay">
+                            <div class="solution-badge">
+                                <span class="badge-h badge-h-purple">H</span>
+                                <span class="badge-name">Studio</span>
+                            </div>
+                            <p class="solution-text">H Studio brings your brand to life with professional web design, marketing strategies, and digital storytelling — helping you engage guests and grow your business</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trusted By -->
+        <section class="partners section" id="partners">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <p class="section-tagline">Our Partners</p>
+                    <h2 class="section-title">Trusted by Industry Leaders</h2>
+                    <p class="section-description">We're proud to work alongside some of the world's most respected hospitality brands.</p>
+                </div>
+                <div class="partners-grid stagger-container">
+                    <div class="partner-logo stagger-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Accor_logo.svg/200px-Accor_logo.svg.png" alt="Accor Hotels">
+                    </div>
+                    <div class="partner-logo stagger-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hyatt_Logo.svg/200px-Hyatt_Logo.svg.png" alt="Hyatt">
+                    </div>
+                    <div class="partner-logo stagger-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Marriott_Logo.svg/200px-Marriott_Logo.svg.png" alt="Marriott">
+                    </div>
+                    <div class="partner-logo stagger-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Fairmont_Logo.svg/200px-Fairmont_Logo.svg.png" alt="Fairmont">
+                    </div>
+                    <div class="partner-logo stagger-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Swissôtel_logo.svg/200px-Swissôtel_logo.svg.png" alt="Swissotel">
+                    </div>
+                    <div class="partner-logo stagger-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Radisson_Blu_logo.svg/200px-Radisson_Blu_logo.svg.png" alt="Radisson">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Serve -->
+        <section class="serve section" id="serve">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <p class="section-tagline">Client Segments</p>
+                    <h2 class="section-title">Who We Serve</h2>
+                    <p class="section-description">Whether you manage a flagship resort or a boutique property, we deliver solutions scaled to your specific needs.</p>
+                </div>
+                <div class="serve-grid stagger-container">
+                    <!-- Luxury Hotels -->
+                    <div class="serve-card serve-card-large stagger-item">
+                        <div class="serve-image">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Luxury Hotels">
+                        </div>
+                        <div class="serve-overlay">
+                            <div class="serve-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3m2-16h14M9 7h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/>
+                                </svg>
+                            </div>
+                            <h3 class="serve-title">Luxury Hotels</h3>
+                            <p class="serve-description">Premium solutions for five-star properties where every detail matters. We help you maintain the exceptional standards your guests expect.</p>
+                            <div class="serve-stats">
+                                <span>500+ Properties Served</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Luxury Residences -->
+                    <div class="serve-card stagger-item">
+                        <div class="serve-image">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80" alt="Luxury Residences">
+                        </div>
+                        <div class="serve-overlay">
+                            <div class="serve-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </div>
+                            <h3 class="serve-title">Luxury Residences & Villas</h3>
+                            <p class="serve-description">Hotel-quality service for private residences and exclusive villa estates.</p>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare & Wellness -->
+                    <div class="serve-card stagger-item">
+                        <div class="serve-image">
+                            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Healthcare & Wellness">
+                        </div>
+                        <div class="serve-overlay">
+                            <div class="serve-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="serve-title">Healthcare & Wellness</h3>
+                            <p class="serve-description">Tailored solutions for wellness resorts, spas, and healthcare facilities.</p>
+                        </div>
+                    </div>
+
+                    <!-- Private Yachts -->
+                    <div class="serve-card stagger-item">
+                        <div class="serve-image">
+                            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=600&q=80" alt="Private Yachts">
+                        </div>
+                        <div class="serve-overlay">
+                            <div class="serve-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M2 20h20M5 20v-4l7-7 7 7v4M12 9V3l4 3"/>
+                                </svg>
+                            </div>
+                            <h3 class="serve-title">Private Yachts</h3>
+                            <p class="serve-description">Bespoke solutions for superyachts where luxury meets the sea.</p>
+                        </div>
+                    </div>
+
+                    <!-- Private Aviation -->
+                    <div class="serve-card stagger-item">
+                        <div class="serve-image">
+                            <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=600&q=80" alt="Private Aviation">
+                        </div>
+                        <div class="serve-overlay">
+                            <div class="serve-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5v5L7 20v2l5-1.5 5 1.5v-2l-3-1.5v-5l8 2.5z"/>
+                                </svg>
+                            </div>
+                            <h3 class="serve-title">Private Aviation</h3>
+                            <p class="serve-description">Premium hospitality solutions for private jets and VIP terminals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Global Reach -->
+        <section class="global section" id="global">
+            <div class="global-bg">
+                <div class="global-gradient-orb global-orb-1"></div>
+                <div class="global-gradient-orb global-orb-2"></div>
+            </div>
+            <div class="container">
+                <div class="section-header fade-up">
+                    <p class="section-tagline">Worldwide Operations</p>
+                    <h2 class="section-title">Local Insight, <span class="text-primary">Global</span> Reach</h2>
+                    <p class="section-description">With operational hubs across key markets and a network of trusted suppliers worldwide, we deliver international expertise with local understanding.</p>
+                </div>
+
+                <!-- Stats Row -->
+                <div class="global-stats stagger-container">
+                    <div class="global-stat stagger-item">
+                        <div class="global-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <div class="global-stat-content">
+                            <span class="global-stat-number">25+</span>
+                            <span class="global-stat-label">Countries Served</span>
+                        </div>
+                    </div>
+                    <div class="global-stat stagger-item">
+                        <div class="global-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="global-stat-content">
+                            <span class="global-stat-number">500+</span>
+                            <span class="global-stat-label">Properties Worldwide</span>
+                        </div>
+                    </div>
+                    <div class="global-stat stagger-item">
+                        <div class="global-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="global-stat-content">
+                            <span class="global-stat-number">10+</span>
+                            <span class="global-stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                    <div class="global-stat stagger-item">
+                        <div class="global-stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="global-stat-content">
+                            <span class="global-stat-number">100%</span>
+                            <span class="global-stat-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Cards -->
+                <div class="global-locations stagger-container">
+                    <div class="location-card stagger-item">
+                        <div class="location-image">
+                            <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&w=400&q=80" alt="Georgia">
+                        </div>
+                        <div class="location-overlay">
+                            <div class="location-flag">🇬🇪</div>
+                            <h4 class="location-name">Georgia</h4>
+                            <p class="location-type">Headquarters</p>
+                        </div>
+                    </div>
+                    <div class="location-card stagger-item">
+                        <div class="location-image">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=400&q=80" alt="UAE">
+                        </div>
+                        <div class="location-overlay">
+                            <div class="location-flag">🇦🇪</div>
+                            <h4 class="location-name">UAE</h4>
+                            <p class="location-type">Regional Hub</p>
+                        </div>
+                    </div>
+                    <div class="location-card stagger-item">
+                        <div class="location-image">
+                            <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=400&q=80" alt="Thailand">
+                        </div>
+                        <div class="location-overlay">
+                            <div class="location-flag">🇹🇭</div>
+                            <h4 class="location-name">Thailand</h4>
+                            <p class="location-type">Regional Hub</p>
+                        </div>
+                    </div>
+                    <div class="location-card stagger-item">
+                        <div class="location-image">
+                            <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=400&q=80" alt="Singapore">
+                        </div>
+                        <div class="location-overlay">
+                            <div class="location-flag">🇸🇬</div>
+                            <h4 class="location-name">Singapore</h4>
+                            <p class="location-type">Asia Pacific</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Text -->
+                <div class="global-bottom fade-up">
+                    <p class="global-tagline">Our teams understand regional nuances—from guest preferences to regulatory requirements—ensuring solutions that work seamlessly in your market.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section" id="contact">
+            <div class="cta-bg">
+                <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=80" alt="Luxury hotel" class="cta-image">
+                <div class="cta-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="cta-grid">
+                    <div class="cta-content slide-left">
+                        <h2 class="cta-title">Get Ready For Something Special!</h2>
+                        <p class="cta-description">Whether you're opening a new property or optimizing an existing operation, we're here to help you deliver exceptional hospitality.</p>
+                        <div class="cta-features">
+                            <div class="cta-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                <span>Free initial consultation</span>
+                            </div>
+                            <div class="cta-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                <span>Customized solutions proposal</span>
+                            </div>
+                            <div class="cta-feature">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                <span>No obligation assessment</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-form slide-right">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Smith">
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company" required placeholder="Hotel or Company Name">
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">How can we help? <span class="optional">(optional)</span></label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your property and what you're looking for..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <span class="btn-text">Request a Consultation</span>
+                                <span class="btn-loading">
+                                    <svg class="spinner" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="30 70"/>
+                                    </svg>
+                                </span>
+                            </button>
+                        </form>
+                        <p class="form-note">We typically respond within 24 business hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-clever">Clever</span><span class="logo-h">H</span>
+                    </a>
+                    <p class="footer-tagline">Elevating hospitality operations worldwide.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#serve">Who We Serve</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#solutions">Guest Amenities</a></li>
+                        <li><a href="#solutions">Housekeeping</a></li>
+                        <li><a href="#solutions">Technology</a></li>
+                        <li><a href="#solutions">Procurement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get in Touch</h4>
+                    <p>info@cleverhgroup.com</p>
+                    <p>Georgia • UAE • Thailand • Singapore</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Clever H Group. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
