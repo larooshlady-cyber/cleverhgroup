@@ -119,24 +119,15 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  /* --- hero video: poster paints first, video attaches after load --- */
+  /* --- hero video: native autoplay, fade in once frames arrive --- */
   function initHeroVideo() {
-    var v = document.querySelector('[data-hero-video]');
-    if (!v) return;
-    if (reduced || (navigator.connection && navigator.connection.saveData)) return;
-    var src = v.dataset.heroVideo;
-    if (!src) return;
-    var start = function () {
-      var s = document.createElement('source');
-      s.src = src; s.type = 'video/mp4';
-      v.appendChild(s);
-      v.load();
+    document.querySelectorAll('.hero-media video, .hero-visual video').forEach(function (v) {
+      var ready = function () { v.classList.add('is-ready'); };
+      if (!v.paused && v.readyState > 2) ready();
+      else v.addEventListener('playing', ready, { once: true });
       var p = v.play();
       if (p && p.catch) p.catch(function () {});
-      v.addEventListener('playing', function () { v.classList.add('is-ready'); }, { once: true });
-    };
-    if (document.readyState === 'complete') requestIdleCallbackShim(start);
-    else addEventListener('load', function () { requestIdleCallbackShim(start); }, { once: true });
+    });
   }
   function requestIdleCallbackShim(fn) {
     (window.requestIdleCallback || function (f) { setTimeout(f, 200); })(fn, { timeout: 1500 });

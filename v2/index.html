@@ -17,8 +17,8 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"></noscript>
 
 <link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
-<link rel="stylesheet" href="assets/core.css?v=20261105b">
-<link rel="stylesheet" href="theme.css?v=20261105b">
+<link rel="stylesheet" href="assets/core.css?v=20261105c">
+<link rel="stylesheet" href="theme.css?v=20261105c">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -48,8 +48,8 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-media">
-    <img src="assets/hero-poster.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
-    <video data-hero-video="assets/hero-720.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+    <img src="assets/hero-loop.jpg" alt="" width="1280" height="720" fetchpriority="high" decoding="async">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/hero-loop.jpg" aria-hidden="true"><source src="assets/hero-loop.webm" type="video/webm"><source src="assets/hero-loop.mp4" type="video/mp4"></video>
   </div>
   <div class="hero-scrim"></div>
   <div class="wrap reveal">
@@ -266,7 +266,7 @@
   </div>
 </footer>
 
-<script src="assets/app.js?v=20261105b" defer></script>
+<script src="assets/app.js?v=20261105c" defer></script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
 </body>
 </html>
