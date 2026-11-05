@@ -1,5 +1,5 @@
 /* ============================================================
-   Clever H — shared behaviour
+   Clever H: shared behaviour
    Deliberately small. No scroll-position reads in a scroll
    handler: header state and nav highlighting both use
    IntersectionObserver, so nothing forces synchronous layout.
@@ -28,12 +28,15 @@
     var nav = document.querySelector('[data-nav]');
     if (!burger || !nav) return;
 
+    var hdr = document.querySelector('[data-hdr]');
     function close() {
       nav.classList.remove('is-open');
+      if (hdr) hdr.classList.remove('is-open');
       burger.setAttribute('aria-expanded', 'false');
     }
     burger.addEventListener('click', function () {
       var open = nav.classList.toggle('is-open');
+      if (hdr) hdr.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', String(open));
     });
     nav.addEventListener('click', function (e) {
@@ -119,34 +122,42 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  /* --- hero video: poster paints first, video attaches after load --- */
+  /* --- hero video: poster paints first, video attaches right after.
+     Muted + playsinline + the muted property set in JS is what lets
+     iOS and Chrome autoplay. Paused while off screen. --- */
   function initHeroVideo() {
     var v = document.querySelector('[data-hero-video]');
     if (!v) return;
     if (reduced || (navigator.connection && navigator.connection.saveData)) return;
-    var src = v.dataset.heroVideo;
-    if (!src) return;
-    var start = function () {
+    var base = (v.getAttribute('data-hero-video') || 'assets/hero-720').replace(/\.(mp4|webm)$/, '');
+    if (base === '' || base === 'true') base = 'assets/hero-720';
+    v.muted = true; v.defaultMuted = true;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('autoplay', '');
+    [['webm', 'video/webm'], ['mp4', 'video/mp4']].forEach(function (t) {
       var s = document.createElement('source');
-      s.src = src; s.type = 'video/mp4';
+      s.src = base + '.' + t[0]; s.type = t[1];
       v.appendChild(s);
-      v.load();
-      var p = v.play();
-      if (p && p.catch) p.catch(function () {});
-      v.addEventListener('playing', function () { v.classList.add('is-ready'); }, { once: true });
-    };
-    if (document.readyState === 'complete') requestIdleCallbackShim(start);
-    else addEventListener('load', function () { requestIdleCallbackShim(start); }, { once: true });
-  }
-  function requestIdleCallbackShim(fn) {
-    (window.requestIdleCallback || function (f) { setTimeout(f, 200); })(fn, { timeout: 1500 });
+    });
+    v.preload = 'auto';
+    v.addEventListener('playing', function () { v.classList.add('is-ready'); }, { once: true });
+    function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    v.load();
+    play();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) {
+        if (e[0].isIntersecting) play(); else v.pause();
+      }).observe(v);
+    }
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) play();
+    });
   }
 
   /* --- smooth anchor scroll that respects the fixed header --- */
   function initAnchors() {
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href^="#"]');
-      if (!a) return;
+      if (!a || e.defaultPrevented) return;
       var id = a.getAttribute('href').slice(1);
       if (!id) return;
       var el = document.getElementById(id);
@@ -160,27 +171,147 @@
     });
   }
 
-  /* --- contact form: honest about not having a backend --- */
+  /* --- shared contact details --- */
+  var EMAIL = 'info@cleverhgroup.com';
+  var WA = 'https://wa.me/6581891411';
+  function waLink(text) { return WA + '?text=' + encodeURIComponent(text); }
+
+  function scrollToForm(topic) {
+    var form = document.querySelector('[data-form]');
+    var target = document.getElementById('contact');
+    if (!form || !target) return;
+    if (topic) {
+      var sel = form.querySelector('[name="topic"]');
+      if (sel) Array.prototype.forEach.call(sel.options, function (o) { if (o.text === topic) sel.value = o.value || o.text; });
+    }
+    var hdr = document.querySelector('[data-hdr]');
+    var y = target.getBoundingClientRect().top + scrollY - (hdr ? hdr.offsetHeight : 0);
+    scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+    setTimeout(function () {
+      var first = form.querySelector('input,select,textarea');
+      if (first) first.focus({ preventScroll: true });
+    }, reduced ? 0 : 650);
+  }
+
+  /* --- Talk to a Specialist: a sheet with WhatsApp, email and the form --- */
+  function initSheet() {
+    var sheet = document.querySelector('[data-sheet]');
+    var triggers = document.querySelectorAll('[data-contact]');
+    if (!sheet || !triggers.length || typeof sheet.showModal !== 'function') return;
+    var topicEl = sheet.querySelector('[data-sheet-topic]');
+    var wa = sheet.querySelector('[data-sheet-wa]');
+    var mail = sheet.querySelector('[data-sheet-mail]');
+    var formLink = sheet.querySelector('[data-sheet-form]');
+    var current = '';
+
+    function open(topic) {
+      current = topic || '';
+      topicEl.textContent = current ? ' about ' + current : '';
+      var hello = 'Hello Clever H Group, I would like to talk to a specialist' + (current ? ' about ' + current : '') + '.';
+      wa.href = waLink(hello);
+      mail.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Enquiry' + (current ? ': ' + current : '') + ' (cleverhgroup.com)') +
+        '&body=' + encodeURIComponent(hello + '\n\n');
+      sheet.showModal();
+      document.documentElement.classList.add('has-sheet');
+    }
+    function close() { sheet.close(); }
+    sheet.addEventListener('close', function () { document.documentElement.classList.remove('has-sheet'); });
+
+    Array.prototype.forEach.call(triggers, function (t) {
+      t.addEventListener('click', function (e) {
+        e.preventDefault();
+        var nav = document.querySelector('[data-nav]');
+        if (nav && nav.classList.contains('is-open')) document.querySelector('[data-burger]').click();
+        open(t.getAttribute('data-topic'));
+      });
+    });
+    sheet.querySelector('[data-sheet-close]').addEventListener('click', close);
+    sheet.addEventListener('click', function (e) { if (e.target === sheet) close(); });
+    [wa, mail].forEach(function (a) { a.addEventListener('click', function () { setTimeout(close, 150); }); });
+    formLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      close();
+      scrollToForm(current);
+    });
+  }
+
+  /* --- contact form: no backend, so validate and hand off to the
+     visitor's mail app with everything prefilled --- */
   function initForm() {
     var form = document.querySelector('[data-form]');
     if (!form) return;
+    var note = form.querySelector('[data-form-note]');
+    var to = form.dataset.fallbackEmail || EMAIL;
+
+    function setErr(field, msg) {
+      var wrap = field.closest('.field');
+      var err = wrap.querySelector('.err');
+      if (msg) {
+        wrap.classList.add('is-invalid');
+        field.setAttribute('aria-invalid', 'true');
+        if (!err) { err = document.createElement('span'); err.className = 'err'; err.id = field.id + '-err'; wrap.appendChild(err); }
+        err.textContent = msg;
+        field.setAttribute('aria-describedby', err.id);
+      } else {
+        wrap.classList.remove('is-invalid');
+        field.removeAttribute('aria-invalid');
+        if (err) err.remove();
+      }
+    }
+    function check(field) {
+      var v = field.value.trim();
+      if (field.required && !v) { setErr(field, 'Please fill this in.'); return false; }
+      if (field.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { setErr(field, 'Please enter a valid email.'); return false; }
+      setErr(field, ''); return true;
+    }
+    form.addEventListener('input', function (e) {
+      if (e.target.closest('.is-invalid')) check(e.target);
+    });
+
     form.addEventListener('submit', function (e) {
       var endpoint = form.getAttribute('action');
-      if (!endpoint || endpoint === '#') {
-        e.preventDefault();
-        var note = form.querySelector('[data-form-note]');
-        if (note) {
-          note.hidden = false;
-          note.textContent = 'This form is not connected to a mail service yet. Reach us directly at ' +
-            (form.dataset.fallbackEmail || 'info@cleverhgroup.com') + '.';
-        }
-      }
+      if (endpoint && endpoint !== '#') return;
+      e.preventDefault();
+      var fields = form.querySelectorAll('input,textarea');
+      var ok = true, firstBad = null;
+      Array.prototype.forEach.call(fields, function (f) {
+        if (!check(f)) { ok = false; if (!firstBad) firstBad = f; }
+      });
+      if (!ok) { firstBad.focus(); return; }
+
+      var d = {};
+      Array.prototype.forEach.call(form.elements, function (f) { if (f.name) d[f.name] = f.value.trim(); });
+      var topic = d.topic || 'General enquiry';
+      var subject = 'Enquiry: ' + topic + ' from ' + d.name;
+      var body = [
+        'Name: ' + d.name,
+        'Email: ' + d.email,
+        'Phone: ' + (d.phone || 'not given'),
+        'Office location: ' + (d.office || 'not given'),
+        'Interested in: ' + topic,
+        '',
+        d.message
+      ].join('\n');
+      var href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      var waHref = waLink('Hello Clever H Group, this is ' + d.name + '. ' + d.message);
+
+      note.hidden = false;
+      note.className = 'form-note';
+      note.innerHTML = '<b>Thank you, ' + escapeHtml(d.name.split(' ')[0]) + '. Your email is ready to send.</b>' +
+        'We opened your mail app with everything filled in, just press send. ' +
+        'If nothing opened, write to <a href="' + href + '">' + to + '</a> or message us on WhatsApp.' +
+        '<span class="note-actions"><a class="wa" href="' + waHref + '" target="_blank" rel="noopener">WhatsApp +65 8189 1411</a>' +
+        '<a href="' + href + '">Open email again</a></span>';
+      window.location.href = href;
     });
+  }
+  function escapeHtml(t) {
+    return String(t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
   }
 
   function boot() {
     initHeader(); initNav(); initReveal(); initSpy();
-    initCounters(); initHeroVideo(); initAnchors(); initForm();
+    initCounters(); initHeroVideo(); initSheet(); initAnchors(); initForm();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
