@@ -1,5 +1,5 @@
 /* ============================================================
-   Clever H — shared behaviour
+   Clever H, shared behaviour
    Deliberately small. No scroll-position reads in a scroll
    handler: header state and nav highlighting both use
    IntersectionObserver, so nothing forces synchronous layout.
@@ -160,20 +160,26 @@
     });
   }
 
-  /* --- contact form: honest about not having a backend --- */
+  /* --- contact form: no backend, so hand off to the visitor's mail app --- */
   function initForm() {
     var form = document.querySelector('[data-form]');
     if (!form) return;
     form.addEventListener('submit', function (e) {
-      var endpoint = form.getAttribute('action');
-      if (!endpoint || endpoint === '#') {
-        e.preventDefault();
-        var note = form.querySelector('[data-form-note]');
-        if (note) {
-          note.hidden = false;
-          note.textContent = 'This form is not connected to a mail service yet. Reach us directly at ' +
-            (form.dataset.fallbackEmail || 'info@cleverhgroup.com') + '.';
-        }
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var to = form.dataset.fallbackEmail || 'info@cleverhgroup.com';
+      var get = function (n) { var f = form.elements[n]; return f && f.value ? f.value.trim() : ''; };
+      var body = [['Name', get('name')], ['Email', get('email')], ['Phone', get('phone')],
+        ['Office location', get('office')], ['Message', get('message')]]
+        .filter(function (r) { return r[1]; })
+        .map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
+      var subject = 'Enquiry from ' + (get('email') || 'cleverhgroup.com');
+      location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      var note = form.querySelector('[data-form-note]');
+      if (note) {
+        note.hidden = false;
+        note.innerHTML = 'Your mail app should open with the message ready to send. ' +
+          'Prefer chat? <a href="https://wa.me/6581891411" target="_blank" rel="noopener">WhatsApp us</a>.';
       }
     });
   }
